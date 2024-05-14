@@ -8,6 +8,9 @@ indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+# IDE0320: Make anonymous function static
+csharp_prefer_static_anonymous_function = true
+
 [*.ts]
 quote_type = single
 

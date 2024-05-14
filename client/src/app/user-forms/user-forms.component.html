@@ -1,0 +1,39 @@
+<div class="lg:max-w-md mx-auto">
+  <app-logo></app-logo>
+</div>
+<div class="lg:max-w-sm mx-auto space-y-4">
+  <h3 class="text-center lg:text-2xl antialiased tracking-normal">
+    Chat with a Guest Account
+  </h3>
+  <input [placeholder]="guestAccountPlaceholder" type="text"
+    class="w-full rounded-md border-2 border-gray-600 p-2 focus:outline-none" />
+  <p class="text-gray-500 text-center">
+    Guest account won't persists your chat history
+  </p>
+</div>
+<!-- anonymous section -->
+<div class="my-5">
+  <h3 class="text-center lg:text-2xl antialiased tracking-normal">OR</h3>
+</div>
+<div class="lg:max-w-sm mx-auto space-y-4">
+  <h3 class="text-center lg:text-2xl antialiased tracking-normal">
+    Create an account for your chats
+  </h3>
+  <form [formGroup]="signUpForm" (ngSubmit)="handleSignUp()">
+    <input formControlName="email" placeholder="Enter your email" type="text"
+      class="w-full rounded-md border-2 border-gray-600 p-2 focus:outline-none" />
+    <span class="text-red-500 px-2" *ngIf="
+        this.signUpForm.get('email')?.errors &&
+        this.signUpForm.get('email')?.hasError('required') &&
+        this.signUpForm.get('email')?.touched
+      ">Email is required</span>
+    <div class="flex justify-center ring-amber-200 mt-10">
+      <button type="submit" class="p-3 bg-gradient-to-r bg-emerald-200 rounded-xl">
+        Proceed
+      </button>
+    </div>
+  </form>
+  <p class="text-gray-500 text-center">
+    Creating an account persists your chat hist:ories
+  </p>
+</div>
